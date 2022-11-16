@@ -2,7 +2,7 @@
 
 Outputs a png image showing a circle with 2 centered letters
 
-[[file:./output.png]]
+[[file:./image.png]]
 Sample output
 
 Instructions

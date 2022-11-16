@@ -4,20 +4,18 @@ Outputs a png image showing a circle with 2 centered letters
 
 [[file:./image.png]]
 
-Sample output
+(Sample output)
 
 * How to use
 + clone the repo then
 + go run -v ./main.go
 
-
 then go to http://localhost:8080/?label=FA&bg=FF5733&fg=FFFFFF&size=25000
 
-query params available atm:
-
-label= string of 2 chars
-fg= foreground color in "hex format" without the #!
-bg= background color in "hex format" without the #!
-size=2500 size of the circle (it is clipped to 2500)
+The Query params available atm:
++ label= string of 2 chars
++ fg= foreground color in "hex format" without the #!
++ bg= background color in "hex format" without the #!
++ size=2500 size of the circle (it is clipped to 2500)
 
 Further on it would be cool to add font styles, borders rounded percentage, etc

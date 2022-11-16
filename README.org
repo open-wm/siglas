@@ -1,0 +1,10 @@
+#+title: Readme
+
+Outputs a png image showing a circle with 2 centered letters
+
+[[file:./output.png]]
+Sample output
+
+Instructions
+clone the repo then
+go run -v ./main.go "AB"

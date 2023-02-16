@@ -23,7 +23,8 @@ func GetIconHandler(rw http.ResponseWriter, r *http.Request) {
 	log.Println("[GET] New request!", label, bg, fg)
 	sizeInt := 255
 	if size != "" {
-		sizeInt, err := strconv.Atoi(size)
+		var err error
+		sizeInt, err = strconv.Atoi(size)
 		if err != nil {
 			sizeInt = 255
 		}

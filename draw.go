@@ -18,8 +18,10 @@ func addCenteredLabel(img *image.Paletted, font *truetype.Font, fontSize float64
 	c.SetClip(img.Bounds())
 	c.SetDst(img)
 
+	offset := 0.0
 	if len(label) != 2 {
-		fmt.Println("The centering only works for 2 char strings")
+		log.Println("The centering only works for 2 char strings, trying to offest the width, this doesnt work in super small sizes tho")
+		offset = 0.75
 	}
 	fgRGBAColor, err := ParseHexColor(fgColor)
 	if err != nil {
@@ -32,7 +34,7 @@ func addCenteredLabel(img *image.Paletted, font *truetype.Font, fontSize float64
 
 	x := float64(img.Rect.Size().X/2) - fontSize/1.7 // idk why these numbers work for any font size
 	y := float64(img.Rect.Size().Y/2) + fontSize/2.6 // idk why these numbers work for any font size
-	pt := freetype.Pt(int(x), int(y))
+	pt := freetype.Pt(int(x)+int(x*offset), int(y))
 	if _, err := c.DrawString(label, pt); err != nil {
 		// handle error
 		fmt.Println(err)

@@ -7,6 +7,26 @@ Outputs a png image showing a circle with 2 centered letters
 (Sample output)
 
 * How to use
+**  Go Project as a Package
++ Import siglas into your project
+  #+begin_src golang
+  import (
+  "github.com/open-wm/siglas"
+  )
+  #+end_src
++ Then run the ReadDefaultFont() to read the default font embeded (noto-font)
+  #+begin_src golang
+    if err := siglas.ReadDefaultFont(); err != nil {
+        log.Println("Error, couldnt read the font", err)
+        return
+    }
+  #+end_src
++ Register the HandlerFunc to the path you want
+  #+begin_src
+	http.HandleFunc("/", siglas.GetIconHandler)
+  #+end_src
++
+** Standalone web server)
 + clone the repo then
 + go run -v ./main.go
 

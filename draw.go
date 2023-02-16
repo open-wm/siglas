@@ -6,7 +6,6 @@ import (
 	"github.com/golang/freetype/truetype"
 	"image"
 	"image/color"
-	"log"
 )
 
 // https://stackoverflow.com/posts/54200713/revisions
@@ -20,7 +19,7 @@ func addCenteredLabel(img *image.Paletted, font *truetype.Font, fontSize float64
 
 	offset := 0.0
 	if len(label) != 2 {
-		log.Println("The centering only works for 2 char strings, trying to offest the width, this doesnt work in super small sizes tho")
+		// log.Println("The centering only works for 2 char strings, trying to offest the width, this doesnt work in super small sizes tho")
 		offset = 0.75
 	}
 	fgRGBAColor, err := ParseHexColor(fgColor)
@@ -77,7 +76,7 @@ func getImage(font *truetype.Font, bg, fg string, size int, label string) image.
 		fgRGBAColor,
 	}
 	img := image.NewPaletted(image.Rect(0, 0, length, length), palette)
-	log.Println(" Drawing background...")
+	// log.Println(" Drawing background...")
 	for x := 0; x < img.Rect.Size().X; x++ {
 		for y := 0; y < img.Rect.Size().Y; y++ {
 			// make a circle calculating if it sits within the equation of a circle,
@@ -88,7 +87,7 @@ func getImage(font *truetype.Font, bg, fg string, size int, label string) image.
 			}
 		}
 	}
-	log.Println(" Drawing foreground...")
+	// log.Println(" Drawing foreground...")
 	addCenteredLabel(img, font, float64(img.Rect.Size().X)/2, fg, label)
 	return img
 }

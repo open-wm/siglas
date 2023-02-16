@@ -2,7 +2,6 @@ package siglas
 
 import (
 	"image/png"
-	"log"
 	"net/http"
 	"strconv"
 )
@@ -20,7 +19,7 @@ func GetIconHandler(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 	size := r.FormValue("size")
-	log.Println("[GET] New request!", label, bg, fg)
+	// log.Println("[GET] New request!", label, bg, fg)
 	sizeInt := 255
 	if size != "" {
 		var err error
@@ -35,6 +34,6 @@ func GetIconHandler(rw http.ResponseWriter, r *http.Request) {
 	}
 	img := getImage(font, bg, fg, sizeInt, label)
 	rw.Header().Set("Content-Type", "image/png")
-	log.Println(" Encoding...", label, bg, fg)
+	// log.Println(" Encoding...", label, bg, fg)
 	png.Encode(rw, img)
 }
